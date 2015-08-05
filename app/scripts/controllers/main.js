@@ -8,7 +8,7 @@
  * Controller of the matadorApp
  */
 angular.module('matadorApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', function ($scope, $http, $filter) {
     $scope.awesomeThings = [];
 
     $http.get('http://localhost:9001/blogs')
@@ -19,9 +19,11 @@ angular.module('matadorApp')
     });
 
     $scope.addyInputToAwesoeThings = function() {
-    	$scope.blog.comments = [];
-    	$http.post('http://localhost:9001/blogs', $scope.blog).then(function(){
-		$scope.awesomeThings.push($scope.blog);
-	});
-    }
+        $scope.blog.comments = [];
+        $http.post('http://localhost:9001/blogs', $scope.blog)
+        .then(function() {
+            $scope.awesomeThings.push($scope.blog);
+            $scope.blog = {};
+        });
+    };
   });

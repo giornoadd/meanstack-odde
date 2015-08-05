@@ -30,7 +30,7 @@
     <fieldset><lable>Title:</lable><input type="text" ng-model="blog.title" placeholder="title"/></fieldset>
     <fieldset><lable>Content:</lable><textarea ng-model="blog.content" placeholder="content"/></fieldset>
     <fieldset><lable>Post By:</lable><input type="text" ng-model="blog.post_by" placeholder="post by"/></fieldset>
-    <hr>
+    <br>
     <input type="submit" value="submit"/>
   </form>
 <div ng-show="error">
@@ -38,8 +38,9 @@
 </div>
 {{error}}
 <div ng-hide="error">
-  <ul ng-repeat="blog in awesomeThings track by $index">
-    <li>{{$index}} - {{blog.title}}</li>
+  Filter: <input type="text" ng-model="searchTerm"/>
+  <ul ng-repeat="blog in awesomeThings | filter:{title:searchTerm}">
+    <li>{{blog.title}}</li>
   </ul>
 </div>
 </div>
