@@ -1,0 +1,9 @@
+<p>This is the blogDetail view.</p>
+<h1>{{post.title}}</h1>
+<p>{{post.content}}</p>
+<div> Post by: {{post.post_by}}</div>
+
+<ul ng-repeat="comment in post.comments">
+	<li>{{comment}}</li>
+</ul>
+<a ng-href="/#/">back</a>

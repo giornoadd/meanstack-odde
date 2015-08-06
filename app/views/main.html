@@ -1,3 +1,25 @@
+<div class="row marketing">
+    <h1>Blogs</h1>
+  <form ng-submit="addNewBlog()">
+    <fieldset><lable>Title:</lable><input type="text" ng-model="blog.title" placeholder="title"/></fieldset>
+    <fieldset><lable>Content:</lable><textarea ng-model="blog.content" placeholder="content"/></fieldset>
+    <fieldset><lable>Post By:</lable><input type="text" ng-model="blog.post_by" placeholder="post by"/></fieldset>
+    <br>
+    <input type="submit" value="submit"/>
+  </form>
+  <hr/>
+<div ng-show="error">
+  {{error}}
+</div>
+{{error}}
+<div ng-hide="error">
+  Filter: <input type="text" ng-model="searchTerm"/>
+  <ul ng-repeat="blog in blogs | filter:{title:searchTerm}">
+    <li><a ng-href="/#/blogDetail/{{$index + 1}}">{{blog.title}}</a></li>
+  </ul>
+</div>
+</div>
+
 <div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">
@@ -23,24 +45,3 @@
 </div>
 
 
-<div class="row marketing">
-    {{myInput}}
-    <h1>Blogs</h1>
-  <form ng-submit="addyInputToAwesoeThings()">
-    <fieldset><lable>Title:</lable><input type="text" ng-model="blog.title" placeholder="title"/></fieldset>
-    <fieldset><lable>Content:</lable><textarea ng-model="blog.content" placeholder="content"/></fieldset>
-    <fieldset><lable>Post By:</lable><input type="text" ng-model="blog.post_by" placeholder="post by"/></fieldset>
-    <br>
-    <input type="submit" value="submit"/>
-  </form>
-<div ng-show="error">
-  {{error}}
-</div>
-{{error}}
-<div ng-hide="error">
-  Filter: <input type="text" ng-model="searchTerm"/>
-  <ul ng-repeat="blog in awesomeThings | filter:{title:searchTerm}">
-    <li>{{blog.title}}</li>
-  </ul>
-</div>
-</div>
